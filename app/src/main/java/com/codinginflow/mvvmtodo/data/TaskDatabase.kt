@@ -12,22 +12,20 @@ import javax.inject.Provider
 
 //Dependency injection means that classes that use other classes should not be responsible for
 // creating or searching them
-@Database(
-    entities = [Task::class],
-    version = 1
-)
+@Database(entities = [Task::class], version = 1)
 abstract class TaskDatabase : RoomDatabase() {
     abstract fun taskDao(): TaskDao
 
     //Provider initialises classes when we use it
     class Callback @Inject constructor(
         private val database: Provider<TaskDatabase>,
-       @ApplicationScope private val applicationScope: CoroutineScope
+        @ApplicationScope private val applicationScope: CoroutineScope
     ) : RoomDatabase.Callback() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
             //db operations
             val dao = database.get().taskDao()
+
             applicationScope.launch {
                 dao.insert(
                     task = Task(
@@ -41,12 +39,12 @@ abstract class TaskDatabase : RoomDatabase() {
                 )
                 dao.insert(
                     task = Task(
-                        name = "Buy groceries",important = true
+                        name = "Buy groceries", important = true
                     )
                 )
                 dao.insert(
                     task = Task(
-                        name = "Prepare food",completed = true
+                        name = "Prepare food", completed = true
                     )
                 )
                 dao.insert(

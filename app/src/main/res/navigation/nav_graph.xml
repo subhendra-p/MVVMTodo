@@ -9,5 +9,5 @@
         android:id="@+id/tasksFragment"
         android:name="com.codinginflow.mvvmtodo.ui.tasks.TasksFragment"
         android:label="fragement_tasks"
-        tools:layout="@layout/fragement_tasks" />
+        tools:layout="@layout/fragment_tasks" />
 </navigation>
