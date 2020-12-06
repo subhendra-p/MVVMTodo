@@ -1,4 +1,8 @@
 package com.codinginflow.mvvmtodo.ui.tasks
 
-class TasksFragment {
+import androidx.fragment.app.Fragment
+import com.codinginflow.mvvmtodo.R
+
+class TasksFragment : Fragment(R.layout.fragement_tasks) {
+
 }
